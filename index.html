@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Registrador de Ventas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="lib/styles/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+	</head>
+
+	<body ng-app="miAp">		
+        <div class="container">
+            <div>
+                <nav class="navbar navbar-inverse" role="navigation">
+                    <div class="container-fluid">
+
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#acolapsar2">
+                                <span class="sr-only">Toggle Navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>   
+                            <a href="#" class="navbar-brand">Registrador de Ventas</a>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="acolapsar2">                   
+                            <div class="nav navbar-nav navbar-right">
+                                <li><a href="#/verVentas"><span class="glyphicon glyphicon-th-list"></span>Ver ventas</a></li>
+                                <li><a href="#/ingresarVenta"><span class="glyphicon glyphicon-plus-sign"></span>Ingresar Venta</a></li>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div ng-view></div>
+
+            <div class="footer col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+                <hr size="3"/>
+                <p><span></span>Diseñado y constuido por:</p>
+                <p><span class="glyphicon glyphicon-user"></span>Yeison Betancourt Solis</p>
+                <p><span></span>Bootstrap + AngularJS</p>
+                <p><span></span>Eclipse</p>
+            </div>
+        </div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+        <script src="lib/scripts/bootstrap.min.js" type="text/javascript"></script>
+        <script src="lib/scripts/angular.min.js" type="text/javascript"></script>
+        <script src="lib/scripts/angular-route.min.js" type="text/javascript"></script>
+        <script src="lib/scripts/angular-locale_es-co.js" type="text/javascript"></script>
+        <!--<script src="scripts/controllers/codigo.js" type="text/javascript"></script> -->
+
+        <script src="scripts/app.js" type="text/javascript"></script>       
+        <script src="scripts/controllers/verVentas.js" type="text/javascript"></script>      
+        <script src="scripts/controllers/ingresarVenta.js" type="text/javascript"></script>      
+        <script src="scripts/services/verVentas.js" type="text/javascript"></script>      
+        <script src="scripts/services/ingresarVenta.js" type="text/javascript"></script>              
+
+	</body>
+</html>

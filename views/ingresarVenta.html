@@ -1,0 +1,61 @@
+<hr>
+<h1>Formulario de ingreso de venta</h1>
+<hr>
+<div ng-show="errorServer" class="jumbotron col-lg-offset-3 col-md-offset-3 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+	<h3 align="center" class="text-danger">{{msg}}</h3>
+</div>
+<div ng-hide="errorServer">  
+	<div class="jumbotron col-lg-offset-3 col-md-offset-3 col-lg-6 col-md-6 col-sm-12 col-xs-12">  
+		<form id="form" role="form" name="form">
+
+			<div ng-show="errorTipoPago">
+				<p class="text-danger">Error. Por favor seleccione el tipo de pago.</p>
+			</div>
+
+			<div class="form-group" ng-class="{'has-error': form.nombreCliente.$invalid, 'has-success': form.nombreCliente.$valid}">
+	  			<label for="nombreCliente">Nombre del cliente</label>
+	  			<input id="nombreCliente" type="text" placeholder="cliente" class="form-control" name="nombreCliente" ng-model="venta.nombreCliente" required>		  		
+	  			<div ng-show="form.nombreCliente.$dirty && form.nombreCliente.$invalid">
+	    			<p class="help-block text-danger" ng-show="form.nombreCliente.$error.required">Campo obligatorio</p>
+	  			</div>
+			</div>
+
+			<div class="form-group" ng-class="{'has-error': form.valorCompra.$invalid, 'has-success': form.valorCompra.$valid}">  
+	  			<label for="valorCompra">Valor de la compra</label>
+	  			<input id="valorCompra" type="number" placeholder="valor"  class="form-control" name="valorCompra" ng-model="venta.valorCompra" required>
+	  			<div ng-show="form.valorCompra.$dirty && form.valorCompra.$invalid">
+	        		<p class="help-block text-danger" ng-show="form.valorCompra.$error.required">Campo obligatorio</p>
+	    			<p class="help-block text-danger" ng-show="form.valorCompra.$error.number">Campo numerico</p>
+	  			</div>
+			</div>
+
+			<div class="form-group" ng-class="{'has-error': form.numArticulos.$invalid, 'has-success': form.numArticulos.$valid}">  
+	  			<label for="numArticulos">Numero de articulos</label>
+	  			<input id="numArticulos" type="number" placeholder="numero"  class="form-control" name="numArticulos" ng-model="venta.numArticulos" required>
+	  			<div ng-show="form.numArticulos.$dirty && form.numArticulos.$invalid">
+	        		<p class="help-block text-danger" ng-show="form.numArticulos.$error.required">Campo obligatorio</p>
+	    			<p class="help-block text-danger" ng-show="form.numArticulos.$error.number">Campo numerico</p>
+	  			</div>
+			</div>
+
+			<div class="form-group" ng-class="{'has-error': form.fecha.$invalid, 'has-success': form.fecha.$valid}">  
+	  			<label for="fecha">Fecha</label>
+	  			<input id="fecha" type="date" placeholder="numero"  class="form-control" name="fecha" ng-model="venta.fecha" required>
+			</div>
+
+			<div class="form-group" ng-class="{'has-error': form.tipoPago.$invalid, 'has-success': form.tipoPago.$valid}">
+				<label for="tipoPago">Seleccione el tipo de pago:</label><br>
+	  			<input ng-model="venta.tipoPago" type="radio" name="tipoPago" value="Efectivo" ><label for="tipoPago">Efectivo</label>
+				<br>
+				<input ng-model="venta.tipoPago" type="radio" name="tipoPago" value="Tarjeta de credito" ><label for="tipoPago">Tarjeta de credito</label>
+				<br>
+				<input ng-model="venta.tipoPago" type="radio" name="tipoPago" value="Tarjeta débito" ><label for="tipoPago">Tarjeta débito</label>
+			</div>
+
+			<div align="center">
+	        	<button class="btn btn-lg btn-primary" type="submit" ng-click="setVentas(venta.nombreCliente, venta.valorCompra, venta.numArticulos, venta.fecha, venta.tipoPago)" ng-disabled="form.$invalid">Guardar</button>
+	    	</div>
+	    	<h3 align="center"><p class="text-danger">{{msg}}</p></h3>
+	    </form>    
+	</div>
+</div>

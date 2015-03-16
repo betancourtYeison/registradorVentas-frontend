@@ -1,0 +1,50 @@
+<hr>
+<h1>Tabla de Ventas</h1>
+<hr>
+<div ng-show="errorServer" class="jumbotron col-lg-offset-3 col-md-offset-3 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+	<h3 align="center" class="text-danger">{{msg}}</h3>
+</div>
+<div ng-hide="errorServer">    
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+				<input type="text" class="form-control" placeholder="Buscar venta" ng-model="buscar.nombreCliente">
+			</div>
+		</div>
+		<div class="panel-body">
+          	<div class="table-responsive" style="height:320px; overflow: auto;">
+            	<table class="table table-hover">
+					<thead>
+						<tr>
+							<th></th>
+							<th>
+								<a href="" ng-click="ordenarPor('nombreCliente')">
+									Nombre del cliente
+								</a>
+								<span class="caret" style="cursor: pointer" ng-click="ordenarPor('-nombreCliente')"></span>
+							</th>
+							<th>Valor de la compra</th>
+							<th>Numero de articulos comprados</th>
+							<th>Fecha</th>
+							<th>Tipo de pago</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="venta in retVentas | orderBy:ordenSeleccionado | filter:buscar">
+							<td>
+								<button class="btn btn-sm btn-danger" type="submit" ng-click="deleteVentas(venta.id)"><span class="glyphicon glyphicon-remove"></span></button>
+							</td>
+							<td>{{venta.nombreCliente}}</td>
+							<td>{{venta.valorCompra | currency}}</td>
+							<td>{{venta.numArticulos}} articulos</td>
+							<td>{{venta.fecha | date:'fullDate'}}</td>
+							<td>{{venta.tipoPago}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<h3 align="center" class="text-danger">{{msg}}</h3>
+			</div>
+		</div>
+	</div>
+</div>
